@@ -32,7 +32,7 @@ def printGame(game=game):
 
 def getTiles():
 	tiles = {}
-	screen = cv2.cvtColor(np.array(pyautogui.screenshot(region=(200, 350, 550, 550))), cv2.COLOR_BGR2GRAY)
+	screen = cv2.cvtColor(np.array(pyautogui.screenshot()), cv2.COLOR_BGR2GRAY)
 	for tileNumber in [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]:
 		template = cv2.imread('tile' + str(tileNumber) + '.png', 0)
 		w, h = template.shape[::-1]
