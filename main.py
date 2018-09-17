@@ -24,7 +24,7 @@ def printGame(game=game):
 			print(str(game[i * 4 + j] if game[i * 4 + j] else '').center(4), '| ', end='')
 		print(str(game[i * 4 + 3] if game[i * 4 + 3] else '').center(4))
 		print('------|------|------|------')
-	print(end=' ')
+	print(' ', end='')
 	for j in range(3):
 		print(str(game[12 + j] if game[12 + j] else '').center(4), '| ', end='')
 	print(str(game[12 + 3] if game[12 + 3] else '').center(4))
