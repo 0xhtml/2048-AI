@@ -6,6 +6,7 @@ import time
 import cv2
 import numpy as np
 import random
+from multiprocessing.pool import ThreadPool
 
 game  = [0] * 16
 
@@ -14,7 +15,9 @@ DOWN  = 1
 LEFT  = 2
 RIGHT = 3
 
-step  = 6
+pool = ThreadPool(processes=5)
+
+step  = 4
 
 def printGame(game=game):
 	print('')
@@ -123,16 +126,24 @@ def main():
 
 		count = {}
 
-		count['up'] = move(game.copy(), UP)
+		count['up']    = pool.apply_async(move, (game.copy(), UP))
+		count['down']  = pool.apply_async(move, (game.copy(), DOWN))
+		count['left']  = pool.apply_async(move, (game.copy(), LEFT))
+		count['right'] = pool.apply_async(move, (game.copy(), RIGHT))
+
+		count['up'].wait()
+		count['down'].wait()
+		count['left'].wait()
+		count['right'].wait()
+
+		count['up']    = count['up'].get()
+		count['down']  = count['down'].get()
+		count['left']  = count['left'].get()
+		count['right'] = count['right'].get()
+
 		print('up', count['up'])
-
-		count['down'] = move(game.copy(), DOWN)
 		print('down', count['down'])
-
-		count['left'] = move(game.copy(), LEFT)
 		print('left', count['left'])
-
-		count['right'] = move(game.copy(), RIGHT)
 		print('right', count['right'])
 
 		count = [x for x,y in count.items() if y == max(count.values())]
