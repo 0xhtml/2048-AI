@@ -34,7 +34,7 @@ def getTiles():
 	tiles = {}
 	screen = cv2.cvtColor(np.array(pyautogui.screenshot()), cv2.COLOR_BGR2GRAY)
 	for tileNumber in [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]:
-		template = cv2.imread('tile' + str(tileNumber) + '.png', 0)
+		template = cv2.imread('tiles/tile' + str(tileNumber) + '.png', 0)
 		w, h = template.shape[::-1]
 		res = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
 		locations = np.where(res >= .8)
