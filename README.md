@@ -1,4 +1,4 @@
 # 2048-AI
-[![CodeFactor](https://www.codefactor.io/repository/github/codeglow/2048-ai/badge/master)](https://www.codefactor.io/repository/github/codeglow/2048-ai/overview/master)
+![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg?style=for-the-badge)
 
 A AI for the game 2048 in python.
