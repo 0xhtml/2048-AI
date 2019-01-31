@@ -3,7 +3,7 @@
 
 A 2048-game AI in Python. Build with [OpenCV](https://github.com/skvark/opencv-python) for image detection and [pyautogui](https://github.com/asweigart/pyautogui/) in order to take a screen shots and press keys.
 
-##Installation
+## Installation
 1. Clone this repository: `git clone https://github.com/0xhtml/2048-AI`
 2. Navigate into the repository: `cd 2048-AI`
 3. Install dependencies: `pip install -r requirements.txt`
